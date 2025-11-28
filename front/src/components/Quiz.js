@@ -25,7 +25,7 @@ export default function Quiz({ onDone }) {
     // Handle form submission
     const handleSubmit = async () => {
         // Send preferences to backend
-        const res = await fetch("http://localhost:3000/api/preference", {
+        const res = await fetch(process.env.REACT_APP_API_URL + "/api/preference", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

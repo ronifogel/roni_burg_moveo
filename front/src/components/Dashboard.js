@@ -12,7 +12,7 @@ export default function Dashboard() {
 
     // Fetch dashboard data on component mount
     useEffect(() => {
-        fetch("http://localhost:3000/api/dashboard", {
+        fetch(process.env.REACT_APP_API_URL + "/api/dashboard", {
             headers: { Authorization: "Bearer " + localStorage.getItem("token") }
         })
             .then(res => res.json())
@@ -39,7 +39,7 @@ export default function Dashboard() {
         }));
 
         //Send request to backend 
-        fetch("http://localhost:3000/api/dashboard/vote", {
+        fetch(process.env.REACT_APP_API_URL + "/api/dashboard/vote", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
