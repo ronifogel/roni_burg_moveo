@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, useNavigate } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Quiz from "./components/Quiz";
+import Dashboard from "./components/Dashboard";
 
-function App() {
+export default function App() {
+  const navigate = useNavigate();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //Use Routes to define application routes
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/preference" element={<Quiz onDone={() => navigate("/dashboard")} />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
   );
 }
-
-export default App;

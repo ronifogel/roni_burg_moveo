@@ -1,12 +1,8 @@
-const express = require("express");
-
-const app = express();
+// Use the configured Express app (routes, CORS, middleware) from app.js
+const app = require('./app');
+//Define the port to listen on
 const PORT = process.env.PORT || 3000;
-
-app.get("/", (req, res) => {
-  res.send("Hello from Node.js + JavaScript backend!");
-});
-
+//Start the server and listen on the defined port
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
